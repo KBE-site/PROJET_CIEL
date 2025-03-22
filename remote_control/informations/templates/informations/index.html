@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Main Panel</title>
+</head>
+<body>
+    <h1>Information Main Panel</h1>
+    <input id="room-name-input" type="text" size="100"><br>
+    <input id="room-name-submit" type="submit" value="Enter">
+
+    <script>
+        const room_name_input = document.querySelector('#room-name-input');
+        const room_name_submit = document.querySelector('#room-name-submit');
+
+        room_name_input.focus();
+        room_name_input.onkeyup = function(e) {
+            if  (e.key === 'Enter') {
+                room_name_submit.click();
+            }
+        };
+
+        room_name_submit.onclick = function(e) {
+            var roomName = room_name_input.value;
+            window.location.pathname = '/informations/' + roomName + '/';
+        };
+    </script>
+</body>
+</html>

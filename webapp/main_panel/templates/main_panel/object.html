@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Panel</title>
+</head>
+<body>
+    <h1>{{ object }}</h1>
+
+    <h2>Altitude : </h2>
+    <p id="api-altitude">0</p>
+
+    <h2>Azimuth : </h2>
+    <p id="api-azimuth">0</p>
+
+    <script>
+        const socket = new WebSocket("ws://localhost:8000/ws/api/");
+
+        socket.onmessage = function(event){
+            const data = JSON.parse(event.data);
+            document.getElementById("api-altitude").innerText = data.api_altitude;
+            document.getElementById("api-azimuth").innerText = data.api_azimuth;
+        }
+    </script>
+</body>
+</html>
