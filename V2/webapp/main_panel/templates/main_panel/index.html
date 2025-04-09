@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Panel</title>
+</head>
+<body>
+    <form action="{% url 'move' %}" method="post">
+        {% csrf_token %}
+        <button id="b-haut" name="b_haut" type="submit" value="top">HAUT</button>
+        <button id="b-bas" name="b_bas" type="submit" value="bottom">BAS</button>
+        <button id="b-gauche" name="b_gauche" type="submit" value="left">GAUCHE</button>
+        <button id="b-droite" name="b_droite" type="submit" value="right">DROITE</button>
+    </form>
+
+    {% for i in objects %}
+        <h2>{{ i }}</h2>
+
+        <form action="{% url 'room_object' %}{{i}}" method="post">
+            {% csrf_token %}
+            <input id="room-name-input" type="hidden" name="planet" value="{{ i }}">
+            <button id="room-name-submit" type="submit">Entrée</button>
+        </form>
+    {% endfor %}
+</body>
+</html>
