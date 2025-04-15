@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.info_object {
+    border: 5px solid red;
+    display: flex;
+}
+
+.formulaire {
+    border: 5px solid green;
+    width: 50%;
+}
+
+.photo {
+    border: 5px solid blue;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    margin-top: 10px;
+    border: solid 5px;
+}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Room</title>
+    <link rel="stylesheet" href="{% static 'informations/style.css' %}">
+    <link rel="stylesheet" href="../../static/informations/style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="info_object">
+            <div class="formulaire">
+                <h1>{{ room_name }}</h1>
+
+                <h2>Altitude : </h2>
+                <p id="api-altitude">0</p>
+
+                <h2>Azimuth : </h2>
+                <p id="api-azimuth">0</p>
+            </div>
+
+            <div class="photo">
+                <img src="{% static '{{ image_path }}' %}" alt="{{ room_name }}" srcset="" width="150px" height="150px">
+            </div>
+
+        </div>
+</div>
+    
+    
+</body>
+
+
+    {{ room_name|json_script:"room-name" }}
+    <script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent);
+
+        const informationsSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/informations/'
+            + roomName
+            + '/'
+        );
+
+        informationsSocket.onmessage = function(event){
+            const data = JSON.parse(event.data);
+            document.getElementById("api-altitude").innerText = data.api_altitude;
+            document.getElementById("api-azimuth").innerText = data.api_azimuth;
+        }
+    </script>
+</body>
+</html>
