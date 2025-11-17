@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet CIEL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="top-nav">
+        <h1 id="main-window-title">{{ title }}</h1>
+
+        <nav class="navigation_pages_button">
+            <ul>
+                <li><a href="{{ url_for('infos') }}">Infos</a></li>
+                <li><a href="{{ url_for('commandes') }}">Commandes</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="bottom-main-window">
+        <div class="main-informations-selected-window-container">
+            <div class="main-informations-selected-window-content">
+                <div class="bottom-hight-content">
+                    <div class="information-main-view-window"><h2>Caméra</h2></div>
+                    <div class="camera-main-view-window"><h2>Informations</h2></div>
+                </div>
+
+                <div class="bottom-panel-content">
+                    <div class="button-on-off-main-window">
+                        <input type="button" value="ON">
+                        <input type="button" value="OFF">
+                    </div>
+                    <div class="selected-object-low-view">
+                        <span>Selected Object :</span>
+                        <div class="selected-object-low-view-informations">
+                            <span id="name-object-selected">Name : {{ obj }}</span>
+                            <span id="azimuth-object-selected">Azimuth : az</span>
+                            <span id="altitude-object-selected">Altitude : alt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="search" name="search" id="search-bar-input" placeholder="Search :">
+            </div>
+            <div class="search-list">
+                {% for obj in objs %}
+                    <form action="{{ url_for('infos_obj', name=obj) }}" method="get">
+                        <div class="result-box-container">
+                            <div class="result-box-informations-content">
+                                <span>name : {{ obj }}</span>
+                                <span>Azimuth : {{ az }}</span>
+                                <span>Altitude : {{ alt }}</span>
+                            </div>
+                            <div class="result-box-informations-button">
+                                <input type="submit" value="Select" id="result-box-button">
+                            </div>
+                        </div>
+                    </form>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='infos.js') }}"></script>
+    <script src="../static/infos.js"></script>
+</body>
+</html>

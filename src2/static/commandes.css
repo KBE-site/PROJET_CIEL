@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TITRE HAUT DE PAGE */
+
+.top-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navigation_pages_button ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navigation_pages_button ul li a {
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
+}
+
+.navigation_pages_button ul li a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* FENETRE PRINCIPALE BAS */
+
+.bottom-main-window {
+    display: flex;
+    height: 100%;
+}
+
+/* FENETRE PRINCIPALE BAS GAUCHE */
+
+.main-informations-selected-window-container {
+    flex: 1;
+    border: dotted;
+}
+
+.main-informations-selected-window-content {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.information-main-view-window{
+    flex: 1;
+    border: solid 1px;
+}
+
+.button-on-off-main-window{
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+/* BARRE BAS */
+
+.bottom-panel-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* BARRE DE RECHERCHE BAS DROITE */
+
+.search-container {
+    width: 20%;
+    border-top: dotted;
+    border-right: dotted;
+    border-bottom: dotted;
+}
+
+.search-bar #search-bar-input {
+    width: 100%;
+}
+
+/* RESSULT BOX */
+
+.result-box-container {
+    border: solid 1px;
+}
+
+.result-box-informations-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.result-box-informations-button #result-box-button {
+    width: 100%;
+    background: none;
+    border: none;
+    border-top: solid 1px;
+    margin-top: 10px;
+}
+
+.result-box-informations-button #result-box-button:hover {
+    cursor: pointer;
+}
+
+.espace-camera{
+    border: solid 1px black;
+    flex: 0.5;
+}
+
+
+.commande-main-view-window{
+    border: solid 1px black;
+    flex: 0.5;
+    display: flex;
+    
+}
+
+.bottom-hight-views {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+}
+
+.bottom-panel-content {
+    display: flex;
+    margin-top: 10px;
+    align-items: baseline;
+}
+
+.selected-object-low-view{
+    display: flex;
+    border: solid 1px;
+    flex: 1;
+    margin-left: 10px;
+}
