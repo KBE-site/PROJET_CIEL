@@ -193,8 +193,8 @@ def post_rc(request):
 
         return response.status_code
     
-def get_all_object_informations():
-    r = requests.get(f"http://localhost:8090/api/objects/info?name=starlink-5677&format=json")
-    return r.text
+# def get_all_object_informations():
+#     r = requests.get(f"http://localhost:8090/api/objects/info?name=starlink-5677&format=json")
+#     return r.text
 
     

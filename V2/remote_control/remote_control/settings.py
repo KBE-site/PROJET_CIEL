@@ -1,4 +1,4 @@
-Django settings for remote_control project.
+# Django settings for remote_control project.
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
